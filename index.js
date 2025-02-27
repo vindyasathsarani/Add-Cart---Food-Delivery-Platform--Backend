@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import cartRouter from "./routes/cartRoutes.js";
-
+import customerRouter from "./routes/customerRoutes.js";
 
 dotenv.config();
 
@@ -39,8 +39,9 @@ mongoose
     console.log("connection failed");
   });
 
-app.use('/api/addCart', cartRouter);
+app.use("/api/addCart", cartRouter);
+app.use("/api/customer", customerRouter);
 
-app.listen(5000, (req, res) => {
+app.listen(4000, (req, res) => {
   console.log("Server is running on port 5000");
 });
