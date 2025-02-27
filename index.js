@@ -3,6 +3,7 @@ import express from "express";
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import cartRouter from "./routes/cartRoutes.js";
 
 
 dotenv.config();
@@ -38,7 +39,7 @@ mongoose
     console.log("connection failed");
   });
 
-
+app.use('/api/addCart', cartRouter);
 
 app.listen(5000, (req, res) => {
   console.log("Server is running on port 5000");
